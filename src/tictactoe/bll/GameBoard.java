@@ -15,6 +15,7 @@ public class GameBoard implements IGameModel
 {
     TicTacViewController tictac = new TicTacViewController(); 
     int counter = 0;
+    int[][] dataBoard = new int[3][3];
     //public IGameModel game;
     /**
      * Returns 0 for player 0, 1 for player 1.
@@ -23,18 +24,11 @@ public class GameBoard implements IGameModel
      */
     public int getNextPlayer()
     {   
-        if(counter == 0)
+        if(counter%2 == 0)
         {
-          // tictac.setPlayer();
-            counter ++;
-            //game.setPlayer();
+           counter = 0;            
         }
-        else
-        {
-            counter --;
-            //tictac.setPlayer();
-        }
-    return counter;
+        return counter;     
     }
 
     /**
@@ -50,7 +44,12 @@ public class GameBoard implements IGameModel
     
     public boolean play(int col, int row)
     {
-        //TODO Implement this method
+        if(dataBoard[col][row] >= 1)
+        {
+            return false;
+        }
+        dataBoard[col][row] = counter + 1;
+        counter ++;
         return true;
     }
 
@@ -76,7 +75,7 @@ public class GameBoard implements IGameModel
      */
     public void newGame()
     {
-        //TODO Implement this method
+        dataBoard = new int[3][3];
     }
 
 }

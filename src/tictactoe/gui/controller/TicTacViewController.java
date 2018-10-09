@@ -58,7 +58,7 @@ public class TicTacViewController implements Initializable
                     String xOrO = player == 0 ? "X" : "O";
                     setPlayer();
                     btn.setText(xOrO);
-                    //setPlayer();
+                    setPlayer();
                 }
             }
         } catch (Exception e)
