@@ -15,6 +15,8 @@ public class GameBoard implements IGameModel
 {
     TicTacViewController tictac = new TicTacViewController(); 
     int counter = 0;
+    int winner = 0;
+    private boolean tie = false;
     int[][] dataBoard = new int[3][3];
     //public IGameModel game;
     /**
@@ -50,13 +52,106 @@ public class GameBoard implements IGameModel
         }
         dataBoard[col][row] = counter + 1;
         counter ++;
+        checkForWinner();
+        checkTie();
         return true;
+    }
+    
+    public boolean checkTie()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                if(dataBoard[i][j] == 0)
+                {
+                    return false;
+                }
+            }
+        }
+        tie = true;
+        return tie;
     }
 
     public boolean isGameOver()
     {
-        //TODO Implement this method
-        return false;
+        if (tie == true || winner > 0) 
+        {
+            return true;
+        }
+        else 
+        {
+            return false;
+        }
+        
+    }
+    
+    public void checkForWinner()
+    {
+        if (dataBoard[0][0] == 1 && dataBoard[0][1] == 1 && dataBoard[0][2] == 1)
+        {
+            winner = 1;
+        }
+        if (dataBoard[1][0] == 1 && dataBoard[1][1] == 1 && dataBoard[1][2] == 1)
+        {
+            winner = 1;
+        }
+        if (dataBoard[2][0] == 1 && dataBoard[2][1] == 1 && dataBoard[2][2] == 1)
+        {
+            winner = 1;
+        }
+        if (dataBoard[0][0] == 1 && dataBoard[1][1] == 1 && dataBoard[2][2] == 1)
+        {
+            winner = 1;
+        }
+        if (dataBoard[0][2] == 1 && dataBoard[1][1] == 1 && dataBoard[2][0] == 1)
+        {
+            winner = 1;
+        }
+        if (dataBoard[0][0] == 1 && dataBoard[1][0] == 1 && dataBoard[2][0] == 1)
+        {
+            winner = 1;
+        }
+        if (dataBoard[1][0] == 1 && dataBoard[1][1] == 1 && dataBoard[1][2] == 1)
+        {
+            winner = 1;
+        }
+        if (dataBoard[2][0] == 1 && dataBoard[2][1] == 1 && dataBoard[2][2] == 1)
+        {
+            winner = 1;
+        }
+        if (dataBoard[0][0] == 2 && dataBoard[0][1] == 2 && dataBoard[0][2] == 2)
+        {
+            winner = 2;
+        }
+        if (dataBoard[1][0] == 2 && dataBoard[1][1] == 2 && dataBoard[1][2] == 2)
+        {
+            winner = 2;
+        }
+        if (dataBoard[2][0] == 2 && dataBoard[2][1] == 2 && dataBoard[2][2] == 2)
+        {
+            winner = 2;
+        }
+        if (dataBoard[0][0] == 2 && dataBoard[1][1] == 2 && dataBoard[2][2] == 2)
+        {
+            winner = 2;
+        }
+        if (dataBoard[0][2] == 2 && dataBoard[1][1] == 2 && dataBoard[2][0] == 2)
+        {
+            winner = 2;
+        }
+        if (dataBoard[0][0] == 2 && dataBoard[1][0] == 2 && dataBoard[2][0] == 2)
+        {
+            winner = 2;
+        }
+        if (dataBoard[1][0] == 2 && dataBoard[1][1] == 2 && dataBoard[1][2] == 2)
+        {
+            winner = 2;
+        }
+        if (dataBoard[2][0] == 2 && dataBoard[2][1] == 2 && dataBoard[2][2] == 2)
+        {
+            winner = 2;
+        }
     }
 
     /**
@@ -66,50 +161,24 @@ public class GameBoard implements IGameModel
      */
     public int getWinner()
     {
-        // check for row winners
-        for (int row = 0; row < dataBoard.length; row++) 
+        if (tie == true)
         {
-        // if all three columns are the same then that player wins!
-            if (dataBoard[0][0] == dataBoard[0][1] && dataBoard[0][1] == dataBoard[row][2]) 
-            {
-                // return the winner!
-                return dataBoard[row][0];
-            }
+            return -1;
         }
-
-        // check for column winners
-        for (int col = 0; col < dataBoard.length; col++)
+        else
         {
-        // if all three rows are the same then that player wins!
-            if (dataBoard[0][col] == dataBoard[1][col] && dataBoard[1][col] == dataBoard[2][col]) 
-            {
-                // return our winner!
-                return dataBoard[0][col];
-            }
+            return winner;
         }
-
-        // check for diag winners
-        if (dataBoard[0][0] == dataBoard[1][1] && dataBoard[1][1] == dataBoard[2][2]) 
-        {
-            return dataBoard[0][0];
-        }
-
-        if (dataBoard[0][2] == dataBoard[1][1] && dataBoard[1][1] == dataBoard[2][0])
-        {
-            return dataBoard[0][2];
-        }
-
-        // otherwise just return an empty character
-        return ' ';
-        //return -1;
     }
-
     /**
      * Resets the game to a new game state.
      */
     public void newGame()
     {
+        counter = 0;
         dataBoard = new int[3][3];
+        tie = false;
+        winner = 0;
     }
 
 }
