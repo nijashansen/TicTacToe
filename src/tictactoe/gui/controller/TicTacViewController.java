@@ -88,7 +88,7 @@ public class TicTacViewController implements Initializable
 
     }
 
-    private void displayWinner(int winner)
+    public void displayWinner(int winner)
     {
         String message = "";
         switch (winner)

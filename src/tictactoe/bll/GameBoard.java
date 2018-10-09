@@ -66,8 +66,42 @@ public class GameBoard implements IGameModel
      */
     public int getWinner()
     {
-        //TODO Implement this method
-        return -1;
+        // check for row winners
+        for (int row = 0; row < dataBoard.length; row++) 
+        {
+        // if all three columns are the same then that player wins!
+            if (dataBoard[0][0] == dataBoard[0][1] && dataBoard[0][1] == dataBoard[row][2]) 
+            {
+                // return the winner!
+                return dataBoard[row][0];
+            }
+        }
+
+        // check for column winners
+        for (int col = 0; col < dataBoard.length; col++)
+        {
+        // if all three rows are the same then that player wins!
+            if (dataBoard[0][col] == dataBoard[1][col] && dataBoard[1][col] == dataBoard[2][col]) 
+            {
+                // return our winner!
+                return dataBoard[0][col];
+            }
+        }
+
+        // check for diag winners
+        if (dataBoard[0][0] == dataBoard[1][1] && dataBoard[1][1] == dataBoard[2][2]) 
+        {
+            return dataBoard[0][0];
+        }
+
+        if (dataBoard[0][2] == dataBoard[1][1] && dataBoard[1][1] == dataBoard[2][0])
+        {
+            return dataBoard[0][2];
+        }
+
+        // otherwise just return an empty character
+        return ' ';
+        //return -1;
     }
 
     /**
