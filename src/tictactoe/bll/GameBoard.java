@@ -4,34 +4,37 @@
  * and open the template in the editor.
  */
 package tictactoe.bll;
-public int currentPlayerMark;
+
+import tictactoe.gui.controller.TicTacViewController;
+
 /**
  *
  * @author Stegger
  */
 public class GameBoard implements IGameModel
 {
-
+    TicTacViewController tictac = new TicTacViewController(); 
+    int counter = 0;
+    //public IGameModel game;
     /**
      * Returns 0 for player 0, 1 for player 1.
      *
      * @return int Id of the next player.
      */
     public int getNextPlayer()
-    {
-        char currentPlayerMark = 0;
-        //TODO Implement this method
-        if (currentPlayerMark == 'x') 
+    {   
+        if(counter == 0)
         {
-            currentPlayerMark = 'o';
+          // tictac.setPlayer();
+            counter ++;
+            //game.setPlayer();
         }
-
-        else {
-
-            currentPlayerMark = 'x';
-
+        else
+        {
+            counter --;
+            //tictac.setPlayer();
         }
-        return currentPlayerMark;
+    return counter;
     }
 
     /**
@@ -44,6 +47,7 @@ public class GameBoard implements IGameModel
      * @return true if the move is accepted, otherwise false. If gameOver == true
      * this method will always return false.
      */
+    
     public boolean play(int col, int row)
     {
         //TODO Implement this method

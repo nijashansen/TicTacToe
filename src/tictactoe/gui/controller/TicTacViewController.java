@@ -32,7 +32,7 @@ public class TicTacViewController implements Initializable
 
     @FXML
     private GridPane gridPane;
-    
+
     private static final String TXT_PLAYER = "Player: ";
     private IGameModel game;
 
@@ -52,13 +52,13 @@ public class TicTacViewController implements Initializable
                 {
                     int winner = game.getWinner();
                     displayWinner(winner);
-                }
-                else
+                } else
                 {
                     Button btn = (Button) event.getSource();
                     String xOrO = player == 0 ? "X" : "O";
-                    btn.setText(xOrO);
                     setPlayer();
+                    btn.setText(xOrO);
+                    //setPlayer();
                 }
             }
         } catch (Exception e)
@@ -82,9 +82,10 @@ public class TicTacViewController implements Initializable
         setPlayer();
     }
 
-    private void setPlayer()
+    public void setPlayer()
     {
         lblPlayer.setText(TXT_PLAYER + game.getNextPlayer());
+
     }
 
     private void displayWinner(int winner)
@@ -104,7 +105,7 @@ public class TicTacViewController implements Initializable
 
     private void clearBoard()
     {
-        for(Node n : gridPane.getChildren())
+        for (Node n : gridPane.getChildren())
         {
             Button btn = (Button) n;
             btn.setText("");
