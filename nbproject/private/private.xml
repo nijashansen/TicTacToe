@@ -2,6 +2,12 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/Users/nijashansen/Desktop/EASV%20Data%20Programmer/GitHub%20Projects/kryds%20og%20bolle/TicTacToe/src/tictactoe/gui/controller/TicTacViewController.java</file>
+            <file>file:/Users/nijashansen/Desktop/EASV%20Data%20Programmer/GitHub%20Projects/kryds%20og%20bolle/TicTacToe/src/tictactoe/bll/IGameModel.java</file>
+            <file>file:/Users/nijashansen/Desktop/EASV%20Data%20Programmer/GitHub%20Projects/kryds%20og%20bolle/TicTacToe/src/tictactoe/bll/GameBoard.java</file>
+            <file>file:/Users/nijashansen/Desktop/EASV%20Data%20Programmer/GitHub%20Projects/kryds%20og%20bolle/TicTacToe/src/tictactoe/gui/TicTacToe.java</file>
+            <file>file:/Users/nijashansen/Desktop/EASV%20Data%20Programmer/GitHub%20Projects/kryds%20og%20bolle/TicTacToe/src/tictactoe/gui/views/TicTacView.fxml</file>
+        </group>
     </open-files>
 </project-private>

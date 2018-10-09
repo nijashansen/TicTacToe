@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package tictactoe.bll;
-
+public int currentPlayerMark;
 /**
  *
  * @author Stegger
@@ -19,8 +19,19 @@ public class GameBoard implements IGameModel
      */
     public int getNextPlayer()
     {
+        char currentPlayerMark = 0;
         //TODO Implement this method
-        return 0;
+        if (currentPlayerMark == 'x') 
+        {
+            currentPlayerMark = 'o';
+        }
+
+        else {
+
+            currentPlayerMark = 'x';
+
+        }
+        return currentPlayerMark;
     }
 
     /**
